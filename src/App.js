@@ -1,24 +1,24 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Person from './Person/Person';
 
 class App extends Component {
+  state = {
+    persons: [
+      {name: 'Saurabh', age='29'},
+      {name: 'Ripinka', age='27'}
+    ]
+  }
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
           <p>
-            Edit <code>src/App.js</code> and save to reload.
+            React Tutorial
           </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+          <Person name='Saurabh' age='29'>Job Title: Software Engineer</Person>
+          <Person name='Ripinka' age='27'></Person>
         </header>
       </div>
     );
