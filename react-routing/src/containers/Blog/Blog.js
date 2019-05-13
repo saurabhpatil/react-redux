@@ -21,7 +21,8 @@ class Blog extends Component {
                             {/* The below code naviagtes to 'submit' section on the screen */}
                             {/* <li><Link to={{
                                     pathname: "/new-post",
-                                    hash: "#submit"
+                                    hash: "#submit",
+                                    search: "?quick-submit=true"
                                 }}>New Post</Link></li> */}
                         </ul>
                     </nav>
