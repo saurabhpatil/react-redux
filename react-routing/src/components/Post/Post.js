@@ -15,4 +15,6 @@ const post = (props) => {
     )
 };
 
+// 'withRouter' allows you to access the Route props (history, location, match) in the child components, 
+// without having to explicitly pass those as props
 export default withRouter(post);

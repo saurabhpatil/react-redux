@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 // eslint-disable-next-line
-import { Route, Link, NavLink } from 'react-router-dom';
-// import axios from 'axios';
+import { Route, Link, NavLink, Switch } from 'react-router-dom';
 
 import './Blog.css';
 import Posts from './Posts/Posts';
 import './NewPost/NewPost';
 import NewPost from './NewPost/NewPost';
+import FullPost from './FullPost/FullPost';
 
 class Blog extends Component {
     render () {
@@ -15,7 +15,12 @@ class Blog extends Component {
                 <header>
                     <nav>
                         <ul>
-                            <li><NavLink to="/" exact activeClassName="custom-active">Home</NavLink></li>
+                            <li><NavLink to="/" exact 
+                                activeClassName="custom-active"
+                                activeStyle={{textDecoration: 'underline'}}>
+                                    Home
+                                </NavLink>
+                            </li>
                             <li><NavLink to="/new-post">New Post</NavLink></li>
                             
                             {/* Can allow you to use JS object */}
@@ -28,9 +33,13 @@ class Blog extends Component {
                         </ul>
                     </nav>
                 </header>
-                {/* <Route path="/" exact render={() => <Posts />} /> */}
-                <Route path="/" exact component={Posts} />
-                <Route path="/new-post" component={NewPost} />
+                {/* 'Switch' loads only one route at a time, based on first matching route from the list */}
+                <Switch>
+                    <Route path="/" exact component={Posts} />
+                    <Route path="/new-post" component={NewPost} />
+                    <Route path="/:id" exact component={FullPost} />
+                    {/* <Route path="/" exact render={() => <Posts />} /> */}
+                </Switch>
             </div>
         );
     }
