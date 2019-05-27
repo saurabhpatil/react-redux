@@ -6,7 +6,6 @@ import './Blog.css';
 import Posts from './Posts/Posts';
 import './NewPost/NewPost';
 import NewPost from './NewPost/NewPost';
-import FullPost from './FullPost/FullPost';
 
 class Blog extends Component {
     render () {
@@ -15,7 +14,7 @@ class Blog extends Component {
                 <header>
                     <nav>
                         <ul>
-                            <li><NavLink to="/" exact 
+                            <li><NavLink to="/posts" 
                                 activeClassName="custom-active"
                                 activeStyle={{textDecoration: 'underline'}}>
                                     Home
@@ -35,9 +34,8 @@ class Blog extends Component {
                 </header>
                 {/* 'Switch' loads only one route at a time, based on first matching route from the list */}
                 <Switch>
-                    <Route path="/" exact component={Posts} />
                     <Route path="/new-post" component={NewPost} />
-                    <Route path="/:id" exact component={FullPost} />
+                    <Route path="/posts" component={Posts} />
                     {/* <Route path="/" exact render={() => <Posts />} /> */}
                 </Switch>
             </div>
