@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom';
+// eslint-disable-next-line
+import { Route, Link, NavLink } from 'react-router-dom';
 // import axios from 'axios';
 
 import './Blog.css';
@@ -14,8 +15,8 @@ class Blog extends Component {
                 <header>
                     <nav>
                         <ul>
-                            <li><Link to="/">Home</Link></li>
-                            <li><Link to="/new-post">New Post</Link></li>
+                            <li><NavLink to="/" exact activeClassName="custom-active">Home</NavLink></li>
+                            <li><NavLink to="/new-post">New Post</NavLink></li>
                             
                             {/* Can allow you to use JS object */}
                             {/* The below code naviagtes to 'submit' section on the screen */}
