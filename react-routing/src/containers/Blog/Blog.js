@@ -34,6 +34,9 @@ class Blog extends Component {
                 </header>
                 {/* 'Switch' loads only one route at a time, based on first matching route from the list */}
                 <Switch>
+                    {/* 'Guards' allow redirection based on IAM/Auth to block access to specific pages */}
+                    {/* {this.state.auth ? <Route path="/new-post" component={NewPost} /> : null} */}
+                    
                     <Route path="/new-post" component={NewPost} />
                     <Route path="/posts" component={Posts} />
                     <Redirect from="/" to="/posts" />
