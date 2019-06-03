@@ -4,8 +4,10 @@ import { Route, Link, NavLink, Switch, Redirect } from 'react-router-dom';
 
 import './Blog.css';
 import Posts from './Posts/Posts';
-import './NewPost/NewPost';
-import NewPost from './NewPost/NewPost';
+import AsyncComponent from '../../hoc/asyncComponent';
+// import NewPost from './NewPost/NewPost';
+
+const AsyncNewPost = AsyncComponent(() => import('./NewPost/NewPost'));
 
 class Blog extends Component {
     render () {
@@ -37,7 +39,7 @@ class Blog extends Component {
                     {/* 'Guards' allow redirection based on IAM/Auth to block access to specific pages */}
                     {/* {this.state.auth ? <Route path="/new-post" component={NewPost} /> : null} */}
                     
-                    <Route path="/new-post" component={NewPost} />
+                    <Route path="/new-post" component={AsyncNewPost} />
                     <Route path="/posts" component={Posts} />
                     <Redirect from="/" to="/posts" exact/>
                     <Route render={() => <h1>Not Found</h1>} />
